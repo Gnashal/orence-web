@@ -14,7 +14,7 @@ export class AuthService {
   static async register(data: RegisterType) {
     try {
       const res = await api.post("/auth/register", data);
-      if (res.status === 201) {
+      if (res.status === 200) {
         return;
       }
     } catch (error) {
