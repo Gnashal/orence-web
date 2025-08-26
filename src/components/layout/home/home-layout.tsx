@@ -37,9 +37,6 @@ const HomeLayout: React.FC = () =>{
     <main className='flex flex-row h-[80svh] p-10'>
       <Outlet />
     </main>
-    <footer className='flex items-center justify-center'>
-      <span className='text-sm text-gray-500'>&copy; 2025 Kenny. All rights reserved.</span>
-    </footer>
     <Toaster
       richColors={true}
       position="bottom-right"
