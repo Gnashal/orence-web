@@ -49,9 +49,9 @@ const AuthLayout: React.FC = () => {
             showBorder={false}
             className="text-4xl"
           >
-            JLABS Internship
+            ORENCE
           </GradientText>
-          <span>Thank you for the opportunity</span>
+          <span></span>
         </div>
         <div className="w-100 h-fit bg-[#1c182c] rounded-sm p-6">
           <div className="flex flex-col items-center">
@@ -59,9 +59,6 @@ const AuthLayout: React.FC = () => {
           </div>
         </div>
       </main>
-      <footer className='h-[10svh] flex items-center justify-center p-10'>
-        <span className='text-sm text-gray-500'>&copy; 2025 Kenny. All rights reserved.</span>
-      </footer>
       <Toaster
         richColors={true}
         position="bottom-right"
