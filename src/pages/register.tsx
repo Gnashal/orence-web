@@ -5,6 +5,7 @@ import { toastr } from "@/utils/toast";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import z from "zod";
+import { AuthService } from "@/services/auth.service";
 
 const Register: React.FC = () => {
   
@@ -46,22 +47,29 @@ const Register: React.FC = () => {
       return;
     }
     try {
-      setLoading(true);
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      toastr.success("Account created successfully!");
-      setRegisterData({
-        name: "",
-        email: "",
-        password: "",
-        confirmPassword: "",
-      });
-      navigate(unprotectedRoutes.LOGIN);
-    } catch (err) {
-      toastr.error("Something went wrong.");
-      console.error("Register failed:", err);
-    } finally {
-      setLoading(false);
-    }
+    setLoading(true);
+
+    const response = await AuthService.register({
+      name: registerData.name,
+      email: registerData.email,
+      password: registerData.password,
+      confirmPassword: registerData.confirmPassword,
+    });
+
+    toastr.success("Account created successfully!");
+    setRegisterData({
+      name: "",
+      email: "",
+      password: "",
+      confirmPassword: "",
+    });
+    navigate(unprotectedRoutes.LOGIN);
+  } catch (err) {
+    toastr.error("Something went wrong.");
+    console.error("Register failed:", err);
+  } finally {
+    setLoading(false);
+  }
   };
 
   return (
